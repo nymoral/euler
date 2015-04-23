@@ -9,9 +9,10 @@ What is the total of all the name scores in the file?
 """
 
 def total_score(filename):
-    with open(filename, mode='r'):
-        pass
-    return None
+    with open(filename, mode='r') as f:
+        names = [n[1:-1] for n in f.readline().split(',')]
+        names.sort()
+        return sum((1 + i) * (sum(ord(letter) - ord('A') + 1 for letter in name)) for i, name in enumerate(names))
 
 if __name__ == "__main__":
     filename = "22.txt"
