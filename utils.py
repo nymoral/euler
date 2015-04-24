@@ -1,7 +1,14 @@
 import math
 
 class PrimeGen(object):
+    """
+    Prime number generator"
+    """
+
     def __init__(self, limit = "inf"):
+        """
+        Will generate numbers up to limit. (generated n < limit)
+        """
         self.primes = [2, 3, 5, 7, 11, 13, 17, 19]
         self.reset()
         self.limit = limit
@@ -57,4 +64,19 @@ class PrimeGen(object):
         if r >= self.limit:
             raise StopIteration()
         return r
+
+def sum_divisors(n):
+    """
+    Returns a sum of numbers proper divisors.
+    For exsample sum_divisors(28) = 1 + 2 + 4 + 7 + 14 = 28
+    """
+    s = 1
+    limit = int(n**0.5)
+    if limit**2 == n:
+            s += limit
+            limit -= 1
+    for i in range(2, limit+1):
+            if n % i == 0:
+                    s += (i + n // i)
+    return s
 

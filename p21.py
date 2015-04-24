@@ -6,6 +6,8 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
+from utils import sum_divisors
+
 def is_amicable(n, sums):
 	b = sums[n]
 	if b >= len(sums):
@@ -14,18 +16,6 @@ def is_amicable(n, sums):
 	if a == b:
 		return False
 	return a == n
-
-
-def sum_divisors(n):
-	s = 1
-	limit = int(n**0.5)
-	if limit**2 == n:
-		s += limit
-		limit -= 1
-	for i in range(2, limit+1):
-		if n % i == 0:
-			s += (i + n // i)
-	return s
 
 def sum_of_amicable(under):
 	sum_of_divisors = [None for i in range(under)]
