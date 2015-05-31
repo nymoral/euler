@@ -65,6 +65,7 @@ class PrimeGen(object):
             raise StopIteration()
         return r
 
+
 def sum_divisors(n):
     """
     Returns a sum of numbers proper divisors.
@@ -73,10 +74,10 @@ def sum_divisors(n):
     s = 1
     limit = int(n**0.5)
     if limit**2 == n:
-            s += limit
-            limit -= 1
+        s += limit
+        limit -= 1
     for i in range(2, limit+1):
-            if n % i == 0:
-                    s += (i + n // i)
+        if n % i == 0:
+            s += (i + n // i)
     return s
 
